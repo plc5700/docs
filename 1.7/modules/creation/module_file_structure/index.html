@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.35" />
+    <meta name="description" content="Prestashop Technical Documentation">
+<meta name="author" content="PrestaShop">
+
+    <link rel="shortcut icon" href="/images/preston-logo@2x.png" type="image/x-icon" />
+<link rel="icon" href="/images/preston-logo@2x.png" type="image/x-icon" />
+
+    <title>File structure for a PrestaShop module :: Prestashop Developer Documentation</title>
+
+    
+    <link href="/css/font-awesome.min.css?1521820411" rel="stylesheet">
+    <link href="/css/hybrid.css?1521820411" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1521820411" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1521820411" rel="stylesheet">
+    <link href="/css/auto-complete.css?1521820411" rel="stylesheet">
+    <link href="/css/style.css?1521820411" rel="stylesheet">
+
+    <script src="/js/jquery-2.x.min.js?1521820411"></script>
+
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/1.7/modules/creation/module_file_structure/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">PrestaShop DevDocs</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1521820411"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1521820411"></script>
+<script type="text/javascript">
+    
+        var baseurl = '\/';
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1521820411"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+      
+        
+          
+            
+              
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/basics/" title="Basics" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/basics/">
+          <b>1. </b>Basics
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/basics/introduction/" title="Introduction" class="dd-item ">
+        <a href="/1.7/basics/introduction/">
+        Introduction
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/basics/installation/" title="Installation" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/basics/installation/">
+          Installation
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/basics/installation/configuration/" title="Configuration" class="dd-item ">
+        <a href="/1.7/basics/installation/configuration/">
+        Configuration
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+              
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/development/" title="Development" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/development/">
+          <b>2. </b>Development
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/development/coding_standards/" title="Coding standards" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/development/coding_standards/">
+          Coding standards
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/development/coding_standards/commits_and_pull_requests/" title="Commits &amp; Pull Requests" class="dd-item ">
+        <a href="/1.7/development/coding_standards/commits_and_pull_requests/">
+        Commits &amp; Pull Requests
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/development/database/" title="Database" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/development/database/">
+          Database
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/development/database/dbquery/" title="DBQuery class" class="dd-item ">
+        <a href="/1.7/development/database/dbquery/">
+        DBQuery class
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/development/database/objectmodel/" title="ObjectModel class" class="dd-item ">
+        <a href="/1.7/development/database/objectmodel/">
+        ObjectModel class
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/development/prestashop_architecture/" title="The PrestaShop architecture" class="dd-item ">
+        <a href="/1.7/development/prestashop_architecture/">
+        The PrestaShop architecture
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+              
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/testing/" title="Testing" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/testing/">
+          <b>3. </b>Testing
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+              
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/documentation/" title="Documentation" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/documentation/">
+          <b>4. </b>Documentation
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/documentation/why/" title="Why write documentation" class="dd-item ">
+        <a href="/1.7/documentation/why/">
+        Why write documentation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/documentation/how/" title="How to contribute" class="dd-item ">
+        <a href="/1.7/documentation/how/">
+        How to contribute
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/documentation/shortcodes/" title="Shortcodes" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/documentation/shortcodes/">
+          Shortcodes
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+              
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/modules/" title="Modules" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/1.7/modules/">
+          <b>5. </b>Modules
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/modules/templating/" title="How to override templates in modern Back Office modern pages?" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/modules/templating/">
+          How to override templates in modern Back Office modern pages?
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/modules/paiement/" title="Payment modules" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/modules/paiement/">
+          Payment modules
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/modules/widgets/" title="Widgets" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/modules/widgets/">
+          Widgets
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/modules/creation/" title="Creating a first module" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="/1.7/modules/creation/">
+          Creating a first module
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/creation/module_file_structure/" title="File structure for a PrestaShop module" class="dd-item active">
+        <a href="/1.7/modules/creation/module_file_structure/">
+        File structure for a PrestaShop module
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/creation/about_config_xml_file/" title="About the config.xml file" class="dd-item ">
+        <a href="/1.7/modules/creation/about_config_xml_file/">
+        About the config.xml file
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/creation/adding_configuration_page/" title="Adding a configuration page" class="dd-item ">
+        <a href="/1.7/modules/creation/adding_configuration_page/">
+        Adding a configuration page
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/creation/displaying_content_in_front_office/" title="Displaying content on the front office" class="dd-item ">
+        <a href="/1.7/modules/creation/displaying_content_in_front_office/">
+        Displaying content on the front office
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/creation/enabling_auto_update/" title="Enabling the Auto-Update" class="dd-item ">
+        <a href="/1.7/modules/creation/enabling_auto_update/">
+        Enabling the Auto-Update
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/creation/module_translation/" title="Module translation" class="dd-item ">
+        <a href="/1.7/modules/creation/module_translation/">
+        Module translation
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/modules/hooks/" title="Hooks" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/modules/hooks/">
+          Hooks
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/hooks/list_of_hooks/" title="List of hooks" class="dd-item ">
+        <a href="/1.7/modules/hooks/list_of_hooks/">
+        List of hooks
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/hooks/use_hooks_on_modern_pages/" title="Use hooks on modern pages" class="dd-item ">
+        <a href="/1.7/modules/hooks/use_hooks_on_modern_pages/">
+        Use hooks on modern pages
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/hooks/alter_forms_on_modern_pages/" title="Alter forms on modern pages" class="dd-item ">
+        <a href="/1.7/modules/hooks/alter_forms_on_modern_pages/">
+        Alter forms on modern pages
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+              
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/themes/" title="Themes" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/themes/">
+          <b>6. </b>Themes
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/themes/guidelines/" title="Guidelines and coding standards" class="dd-item ">
+        <a href="/1.7/themes/guidelines/">
+        Guidelines
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/themes/starter_theme/" title="Starter Theme" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/themes/starter_theme/">
+          Starter Theme
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/1.7/themes/getting_started/" title="Getting started with theme development" class="dd-item
+        
+        
+        
+        ">
+      <a href="/1.7/themes/getting_started/">
+          Getting started
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/themes/getting_started/setting_up_your_local_environment/" title="Setting up your local environment" class="dd-item ">
+        <a href="/1.7/themes/getting_started/setting_up_your_local_environment/">
+        Set up your local environment
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/themes/migration_from_16/" title="Migrating from PrestaShop 1.6" class="dd-item ">
+        <a href="/1.7/themes/migration_from_16/">
+        Migrating from 1.6
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/themes/rtl/" title="RTL support" class="dd-item ">
+        <a href="/1.7/themes/rtl/">
+        RTL support
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+            
+          
+        
+      
+    </ul>
+
+    
+    
+
+    
+    <section id="footer">
+      <p><a href="https://github.com/PrestaShop/PrestaShop/"><i class="fa fa-github" aria-hidden="true"></i> PrestShop on GitHub</a></p>
+<p><a href="http://forge.prestashop.com/secure/CreateIssue!default.jspa"><i class="fa fa-bug" aria-hidden="true"></i> Report a bug</a></p>
+<p><a href="https://gitter.im/PrestaShop/General"><i class="fa fa-comment" aria-hidden="true"></i> Join us on Gitter</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+      <section id="body">
+      <div id="overlay"></div>
+      <div class="padding highlightable">
+        
+<div>
+  <div id="top-bar">
+    
+      
+      
+      
+      <div id="top-github-link">
+        <a class="github-link" title='Improve this page' href="https://github.com/PrestaShop/docs/edit/hugo/src/content/1.7/modules/creation/module_file_structure.md" target="blank">
+          <i class="fa fa-pencil"></i>
+          <span id="top-github-link-text">Improve this page</span>
+        </a>
+        <a class="how-to-improve" href="/1.7/documentation/how/">
+          <i class="fa fa-question-circle"></i>
+          <span>How</span>
+        </a>
+      </div>
+      
+    
+    <div id="breadcrumbs" itemscope="" itemtype="http://schema.org/breadcrumb">
+      <span id="sidebar-toggle-span">
+        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+          <i class="fa fa-bars"></i>
+        </a>
+      </span>
+      <span class="links">
+        
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              
+              
+            
+            
+              <a href='/'>Home</a> > <a href='/1.7/'>1.7</a> > <a href='/1.7/modules/'>Modules</a> > <a href='/1.7/modules/creation/'>Creating a first module</a> > File structure for a PrestaShop module
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+      </span>
+    </div>
+  </div>
+</div>
+
+
+
+
+        
+
+        
+        
+          
+            <div id="toc">
+  <div class="wrapper">
+    <div id="toc-title">Table of Contents</div>
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#file-structure-for-a-prestashop-module">File structure for a PrestaShop module</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#main-file-module-name-php">Main file: <code>module_name.php</code></a></li>
+<li><a href="#configuration-files-config-xml-and-services-yml">Configuration files: <code>config.xml</code> and <code>services.yml</code></a></li>
+<li><a href="#icon-file-logo-png">Icon file: <code>logo.png</code></a></li>
+<li><a href="#templating-the-views-folder">Templating: the <code>views</code> folder</a></li>
+<li><a href="#make-actions-and-pages-the-controllers-folder">Make actions and pages: the <code>controllers</code> folder</a></li>
+<li><a href="#override-core-classes-of-prestashop-the-override-folder">Override Core classes of PrestaShop: the <code>override</code> folder</a></li>
+<li><a href="#translate-your-strings-the-translations-folder">Translate your strings: the <code>translations</code> folder</a></li>
+<li><a href="#adapt-behavior-of-others-modules-the-themes-theme-name-modules-folder">Adapt behavior of others modules: the <code>themes/theme_name/modules</code> folder</a></li>
+<li><a href="#manage-the-upgrade-the-upgrade-folder">Manage the upgrade: the <code>upgrade</code> folder</a></li>
+</ul></li>
+<li><a href="#external-libraries">External libraries</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+
+    <div id="navigation">
+  
+  
+
+  
+  
+  
+    
+      
+      
+    
+    
+    
+    
+      
+    
+    
+
+    
+    
+  
+  
+    
+      
+      
+    
+    
+    
+    
+      
+    
+    
+
+    
+    
+  
+  
+    
+      
+        
+        
+      
+    
+    
+    
+    
+      
+    
+    
+
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+      
+    
+    
+
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+      
+    
+    
+
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+    
+      
+      
+    
+    
+    
+    
+      
+    
+    
+
+    
+    
+  
+  
+    
+      
+        
+        
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+  
+    
+      
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+        
+        
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+      
+    
+    
+
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+  
+    
+      
+    
+    
+    
+    
+    
+
+    
+    
+  
+    
+    
+  
+    
+    
+  
+    
+    
+  
+
+  
+
+  
+  
+  <a class="nav nav-next" href="/1.7/modules/creation/about_config_xml_file/" title="About the config.xml file" style="margin-right: 0px;">
+    <i class="fa fa-chevron-right"></i>
+    Next article
+  </a>
+  
+</div>
+
+  </div>
+</div>
+
+          
+        
+
+        <div id="body-inner">
+
+          
+
+
+
+
+
+
+<h1 id="file-structure-for-a-prestashop-module">File structure for a PrestaShop module</h1>
+
+<p>A module is made of a lot of files, all stored in a folder that bears
+the same name as the module, that folder being in turn stored in the
+<code>/modules</code> folder at the root of the main PrestaShop folder:
+<code>/modules/name_of_the_module/</code>.</p>
+
+<p>Here are the possible files and folders for a PrestaShop 1.7 module:</p>
+
+<pre><code>➜  module tree -L 3
+.
+├── config
+│   └── services.yml
+├── config.xml
+├── controllers
+├── logo.png
+├── module_name.php
+├── override
+├── themes
+│   └── theme_name
+│       └── modules
+├── translations
+├── upgrade
+└── views
+    ├── css
+    ├── img
+    ├── js
+    └── templates
+
+13 directories, 4 files
+</code></pre>
+
+<h4 id="main-file-module-name-php">Main file: <code>module_name.php</code></h4>
+
+<p>The main PHP file should have the same name as the module’s root folder. For instance, for the BlockCMS module:</p>
+
+<ul>
+<li>Folder name: /modules/blockcms</li>
+<li>Main file name: /modules/blockcms/blockcms.php</li>
+</ul>
+
+<h4 id="configuration-files-config-xml-and-services-yml">Configuration files: <code>config.xml</code> and <code>services.yml</code></h4>
+
+<p>If it does not exist yet, <code>config.xml</code> file is automatically generated by PrestaShop when the module is installed.</p>
+
+<p>In <code>services.yml</code> file, you can register your own classes as a Symfony service and alter the ones provided by PrestaShop.</p>
+
+<h4 id="icon-file-logo-png">Icon file: <code>logo.png</code></h4>
+
+<p>This needs to be a 32*32 pixels PNG file.</p>
+
+<h4 id="templating-the-views-folder">Templating: the <code>views</code> folder</h4>
+
+<p>This folder contains your module’s template files (.tpl or .html.twig files).</p>
+
+<p>Depending on what you need to override, your files are located in differents subfolders:</p>
+
+<ul>
+<li><code>/views/templates/admin</code>: For template files used by the module’s administration <em>legacy</em> controllers.</li>
+<li><code>/views/templates/front</code>: For template files used by the module’s front office controllers.</li>
+<li><code>/views/templates/hook</code>: For template files used by the module’s hooks.</li>
+</ul>
+
+<p>If you want to override a Twig template file from Back Office, declare your own following the same path in
+<code>/views/PrestaShop</code> subfolder. For instance, if you want to override <code>product.html.twig</code> template located in <code>Admin/Product/ProductPage</code>, create your own file in <code>/views/PrestaShop/Admin/ProductPage/product.html.twig</code>.</p>
+
+<p>Every asset you need to use in the module (css, js or image files) must be located in their folders: <code>/views/{js, css, img}</code>.</p>
+
+<h4 id="make-actions-and-pages-the-controllers-folder">Make actions and pages: the <code>controllers</code> folder</h4>
+
+<p>This folder contains the Controller files. You can use the same sub-folder paths as for the View files.</p>
+
+<p>For instance, <code>/modules/module_name/controllers/front/payment.php</code> is a valid path to share an action with your Front Office.</p>
+
+<h4 id="override-core-classes-of-prestashop-the-override-folder">Override Core classes of PrestaShop: the <code>override</code> folder</h4>
+
+<blockquote>
+<p>Try to avoid the overriding of Core classes, this make the upgrade of your application risky.</p>
+</blockquote>
+
+<p>You need to follow the same path as the PrestaShop application.</p>
+
+<p>For instance, if <code>/modules/module_name/override/classes/Shop.php</code> exists and is not overriden by any more module later, this class will be used instead of the native <code>ShopCore.php</code> class everywhere in your application.</p>
+
+<h4 id="translate-your-strings-the-translations-folder">Translate your strings: the <code>translations</code> folder</h4>
+
+<p>This folder contains a php file for each locale: <code>fr.php</code>, <code>es.php</code>. You can contribute to the translations using the Back Office.</p>
+
+<h4 id="adapt-behavior-of-others-modules-the-themes-theme-name-modules-folder">Adapt behavior of others modules: the <code>themes/theme_name/modules</code> folder</h4>
+
+<p>This folder is essential during modifications of an existing module, so that you can adapt it without having to touch its original files. Notably, it enables you to handle the module’s template files in various ways, depending on the current theme.</p>
+
+<h4 id="manage-the-upgrade-the-upgrade-folder">Manage the upgrade: the <code>upgrade</code> folder</h4>
+
+<p>When releasing a new version of the module, the older might need an upgrade of its data or files. This can be done using this folder.</p>
+
+<blockquote>
+<p>Only the three first are necessary for a basic module: the main file, the cache configuration file (which is autogenerated by PrestaShop anyway) and the icon file. All the other ones can be used if necessary, but a module can work without them.</p>
+
+<p>The module can also as many other files and folders as necessary: <code>/css</code>, <code>/img</code>, <code>/js</code>, etc.</p>
+</blockquote>
+
+<h3 id="external-libraries">External libraries</h3>
+
+<p>If wish to use an external library, it should be put in a dedicated
+folder.</p>
+
+<p>That folder can use one of these names: &lsquo;lib&rsquo;, &lsquo;libs&rsquo;, &lsquo;libraries&rsquo;,
+&lsquo;sdk&rsquo;, &lsquo;vendor&rsquo;, &lsquo;vendors&rsquo;.</p>
+
+<p>Choose the most appropriate one for your library (indeed, &lsquo;libraries&rsquo;
+doesn&rsquo;t not have the same meaning as &lsquo;sdk&rsquo;). You can have more than one
+such folder, for instance <code>/lib</code> and <code>/sdk</code>.</p>
+
+
+<footer class="last-updated">
+	
+<div>
+  Last updated on March 15, 2018
+  :
+  <a href="https://github.com/PrestaShop/docs/commit/0d5f9bfd8463112c9ebdc67b5562262b1082b4bd">"Add module docs from master branch" (0d5f9bf)</a>
+  
+</div>
+
+
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1521820411"></script>
+    <script src="/js/perfect-scrollbar.min.js?1521820411"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1521820411"></script>
+    <script src="/js/jquery.sticky.js?1521820411"></script>
+    <script src="/js/featherlight.min.js?1521820411"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1521820411"></script>
+    <script src="/js/highlight.pack.js?1521820411"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom.71422.js?1521820411"></script>
+    <script src="/js/learn.js?1521820411"></script>
+    <script src="/js/hugo-learn.js?1521820411"></script>
+
+    <link href="/mermaid/mermaid.css?1521820411" type="text/css" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1521820411"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+
+  </body>
+</html>
+
